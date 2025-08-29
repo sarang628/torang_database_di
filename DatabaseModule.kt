@@ -1,7 +1,7 @@
 package com.sarang.torang.di.torang_database_di
 
 import android.content.Context
-import com.sarang.torang.data.AppDatabase
+import com.sarang.torang.core.database.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
