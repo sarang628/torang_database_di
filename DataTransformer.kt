@@ -2,11 +2,13 @@ package com.sarang.torang.di.torang_database_di
 
 import com.sarang.torang.core.database.model.favorite.FavoriteEntity
 import com.sarang.torang.core.database.model.feed.FeedEntity
+import com.sarang.torang.core.database.model.image.ReviewImageEntity
 import com.sarang.torang.core.database.model.like.LikeEntity
 import com.sarang.torang.core.database.model.user.UserEntity
 import com.sarang.torang.data.remote.response.FavoriteApiModel
 import com.sarang.torang.data.remote.response.FeedApiModel
 import com.sarang.torang.data.remote.response.LikeApiModel
+import com.sarang.torang.data.remote.response.RemotePicture
 
 fun FeedApiModel.toFeedEntity(): FeedEntity {
     return FeedEntity(
@@ -55,5 +57,20 @@ fun FavoriteApiModel.toFavoriteEntity(): FavoriteEntity {
         favoriteId = this.favorite_id,
         userId = this.user_id,
         createDate = this.create_date
+    )
+}
+
+fun RemotePicture.toReviewImage(): ReviewImageEntity {
+    return ReviewImageEntity(
+        pictureId = this.picture_id,
+        restaurantId = this.restaurant_id,
+        userId = this.user_id,
+        reviewId = this.review_id,
+        pictureUrl = this.picture_url,
+        createDate = this.create_date ?: "",
+        menuId = this.menu_id,
+        menu = 1,
+        width = this.width,
+        height = this.height
     )
 }
