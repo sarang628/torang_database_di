@@ -1,7 +1,7 @@
 package com.sarang.torang.di.torang_database_di
 
 import com.sarang.torang.core.database.AppDatabase
-import com.sarang.torang.core.database.dao.ChatDao
+import com.sarang.torang.core.database.dao.chat.ChatDao
 import com.sarang.torang.core.database.dao.CommentDao
 import com.sarang.torang.core.database.dao.FavoriteDao
 import com.sarang.torang.core.database.dao.FeedDao
