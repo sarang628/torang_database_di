@@ -1,7 +1,7 @@
 package com.sarang.torang.di.torang_database_di
 
 import com.sarang.torang.core.database.AppDatabase
-import com.sarang.torang.core.database.dao.chat.ChatDao
+import com.sarang.torang.core.database.dao.chat.ChatMessageDao
 import com.sarang.torang.core.database.dao.CommentDao
 import com.sarang.torang.core.database.dao.FavoriteDao
 import com.sarang.torang.core.database.dao.FeedDao
@@ -32,7 +32,7 @@ class DaoModules {
     @Provides fun restaurantDao         (appDatabase: AppDatabase): RestaurantDao           { return appDatabase.restaurantDao() }
     @Provides fun commentDao            (appDatabase: AppDatabase): CommentDao              { return appDatabase.commentDao() }
     @Provides fun myFeedDao             (appDatabase: AppDatabase): MyFeedDao               { return appDatabase.myFeedDao() }
-    @Provides fun chatDao               (appDatabase: AppDatabase): ChatDao                 { return appDatabase.chatDao() }
+    @Provides fun chatDao               (appDatabase: AppDatabase): ChatMessageDao                 { return appDatabase.chatDao() }
     @Provides fun searchedRestaurantDao (appDatabase: AppDatabase): SearchedRestaurantDao   { return appDatabase.searchedRestaurantDao() }
     @Provides fun restaurantImageDao    (appDatabase: AppDatabase): RestaurantImageDao      { return appDatabase.restaurantImageDao() }
 }
