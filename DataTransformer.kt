@@ -1,10 +1,13 @@
 package com.sarang.torang.di.torang_database_di
 
+import com.sarang.torang.core.database.model.chat.ChatParticipantsEntity
+import com.sarang.torang.core.database.model.chat.ChatRoomEntity
 import com.sarang.torang.core.database.model.favorite.FavoriteEntity
 import com.sarang.torang.core.database.model.feed.FeedEntity
 import com.sarang.torang.core.database.model.image.ReviewImageEntity
 import com.sarang.torang.core.database.model.like.LikeEntity
 import com.sarang.torang.core.database.model.user.UserEntity
+import com.sarang.torang.data.remote.response.ChatRoomApiModel
 import com.sarang.torang.data.remote.response.FavoriteApiModel
 import com.sarang.torang.data.remote.response.FeedApiModel
 import com.sarang.torang.data.remote.response.LikeApiModel
@@ -74,3 +77,19 @@ fun RemotePicture.toReviewImage(): ReviewImageEntity {
         height = this.height
     )
 }
+
+val ChatRoomApiModel.chatRoomEntity : ChatRoomEntity get() =
+    ChatRoomEntity(
+        roomId = this.roomId,
+        createDate = this.createDate
+    )
+
+val List<ChatRoomApiModel>.chatRoomEntityList : List<ChatRoomEntity> get() =
+    this.map { it.chatRoomEntity }
+
+val List<ChatRoomApiModel>.chatParticipantsEntityList : List<ChatParticipantsEntity> get() =
+    this.flatMap { room ->
+        room.users.map {
+            ChatParticipantsEntity(roomId = room.roomId, userId = it.userId)
+        }
+    }
