@@ -14,12 +14,11 @@ import com.sarang.torang.core.database.dao.RestaurantImageDao
 import com.sarang.torang.core.database.dao.ReviewDao
 import com.sarang.torang.core.database.dao.SearchedRestaurantDao
 import com.sarang.torang.core.database.dao.UserDao
-import com.sarang.torang.core.database.dao.chat.ChatEntityWithUserDao
+import com.sarang.torang.core.database.dao.chat.ChatUserMessageJoinDao
 import com.sarang.torang.core.database.dao.chat.ChatImageDao
 import com.sarang.torang.core.database.dao.chat.ChatParticipantsDao
 import com.sarang.torang.core.database.dao.chat.ChatRoomDao
 import com.sarang.torang.core.database.dao.chat.ChatRoomWithParticipantsDao
-import com.sarang.torang.core.database.model.chat.ChatEntityWithUser
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -42,7 +41,7 @@ class DaoModules {
     @Provides fun searchedRestaurantDao         (appDatabase: AppDatabase): SearchedRestaurantDao       { return appDatabase.searchedRestaurantDao() }
     @Provides fun restaurantImageDao            (appDatabase: AppDatabase): RestaurantImageDao          { return appDatabase.restaurantImageDao() }
     @Provides fun chatRoomDao                   (appDatabase: AppDatabase): ChatRoomDao                 { return appDatabase.chatRoomDao() }
-    @Provides fun chatEntityWithUserDao         (appDatabase: AppDatabase): ChatEntityWithUserDao       { return appDatabase.chatEntityWithUserDao() }
+    @Provides fun chatEntityWithUserDao         (appDatabase: AppDatabase): ChatUserMessageJoinDao       { return appDatabase.chatEntityWithUserDao() }
     @Provides fun chatImageDao                  (appDatabase: AppDatabase): ChatImageDao                { return appDatabase.chatImageDao() }
     @Provides fun chatParticipantsDao           (appDatabase: AppDatabase): ChatParticipantsDao         { return appDatabase.chatParticipantsDao() }
     @Provides fun chatRoomWithParticipantsDao   (appDatabase: AppDatabase): ChatRoomWithParticipantsDao { return appDatabase.chatRoomWithParticipantsDao() }
