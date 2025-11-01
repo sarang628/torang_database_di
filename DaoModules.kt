@@ -18,7 +18,7 @@ import com.sarang.torang.core.database.dao.chat.ChatUserMessageJoinDao
 import com.sarang.torang.core.database.dao.chat.ChatImageDao
 import com.sarang.torang.core.database.dao.chat.ChatParticipantsDao
 import com.sarang.torang.core.database.dao.chat.ChatRoomDao
-import com.sarang.torang.core.database.dao.chat.ChatRoomWithParticipantsDao
+import com.sarang.torang.core.database.dao.chat.ChatRoomParticipantsJoinDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -44,5 +44,5 @@ class DaoModules {
     @Provides fun chatEntityWithUserDao         (appDatabase: AppDatabase): ChatUserMessageJoinDao       { return appDatabase.chatEntityWithUserDao() }
     @Provides fun chatImageDao                  (appDatabase: AppDatabase): ChatImageDao                { return appDatabase.chatImageDao() }
     @Provides fun chatParticipantsDao           (appDatabase: AppDatabase): ChatParticipantsDao         { return appDatabase.chatParticipantsDao() }
-    @Provides fun chatRoomWithParticipantsDao   (appDatabase: AppDatabase): ChatRoomWithParticipantsDao { return appDatabase.chatRoomWithParticipantsDao() }
+    @Provides fun chatRoomWithParticipantsDao   (appDatabase: AppDatabase): ChatRoomParticipantsJoinDao { return appDatabase.chatRoomWithParticipantsDao() }
 }
