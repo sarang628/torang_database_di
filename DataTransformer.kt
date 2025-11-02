@@ -12,6 +12,7 @@ import com.sarang.torang.data.remote.response.FavoriteApiModel
 import com.sarang.torang.data.remote.response.FeedApiModel
 import com.sarang.torang.data.remote.response.LikeApiModel
 import com.sarang.torang.data.remote.response.RemotePicture
+import kotlin.String
 
 fun FeedApiModel.toFeedEntity(): FeedEntity {
     return FeedEntity(
@@ -91,5 +92,24 @@ val List<ChatRoomApiModel>.chatParticipantsEntityList : List<ChatParticipantsEnt
     this.flatMap { room ->
         room.users.map {
             ChatParticipantsEntity(roomId = room.roomId, userId = it.userId)
+        }
+    }
+
+val List<ChatRoomApiModel>.users : List<UserEntity> get() =
+    this.flatMap { room ->
+        room.users.map {
+            UserEntity(
+                userId = it.userId,
+                userName = it.userName,
+                email = "",
+                loginPlatform = "",
+                createDate = "",
+                accessToken = "",
+                profilePicUrl = it.profilePicUrl,
+                point = 0,
+                reviewCount = "",
+                followers = "",
+                following = ""
+            )
         }
     }
