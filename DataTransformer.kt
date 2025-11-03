@@ -1,5 +1,6 @@
 package com.sarang.torang.di.torang_database_di
 
+import com.sarang.torang.core.database.model.chat.ChatMessageEntity
 import com.sarang.torang.core.database.model.chat.ChatParticipantsEntity
 import com.sarang.torang.core.database.model.chat.ChatRoomEntity
 import com.sarang.torang.core.database.model.favorite.FavoriteEntity
@@ -7,6 +8,7 @@ import com.sarang.torang.core.database.model.feed.FeedEntity
 import com.sarang.torang.core.database.model.image.ReviewImageEntity
 import com.sarang.torang.core.database.model.like.LikeEntity
 import com.sarang.torang.core.database.model.user.UserEntity
+import com.sarang.torang.data.remote.response.ChatApiModel
 import com.sarang.torang.data.remote.response.ChatRoomApiModel
 import com.sarang.torang.data.remote.response.FavoriteApiModel
 import com.sarang.torang.data.remote.response.FeedApiModel
@@ -112,4 +114,16 @@ val List<ChatRoomApiModel>.users : List<UserEntity> get() =
                 following = ""
             )
         }
+    }
+
+val List<ChatApiModel>.chats : List<ChatMessageEntity> get() =
+    this.map {
+        ChatMessageEntity(
+            uuid = it.uuid,
+            roomId = it.roomId,
+            userId = it.userId,
+            message = it.message,
+            createDate = it.createDate,
+            sending = false,
+        )
     }
