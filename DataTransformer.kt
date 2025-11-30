@@ -41,9 +41,9 @@ fun FeedApiModel.toUserEntity(): UserEntity {
         accessToken = "",
         profilePicUrl = this.user.profilePicUrl,
         point = 0,
-        reviewCount = "0",
-        following = "0",
-        followers = "0",
+        reviewCount = this.user.post.toString(),
+        following = this.user.following.toString(),
+        followers = this.user.follower.toString(),
         userName = this.user.userName
     )
 }
