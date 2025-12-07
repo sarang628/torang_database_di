@@ -61,7 +61,6 @@ fun FavoriteApiModel.toFavoriteEntity(): FavoriteEntity {
     return FavoriteEntity(
         reviewId = this.review_id,
         favoriteId = this.favorite_id,
-        userId = this.user_id,
         createDate = this.create_date
     )
 }
