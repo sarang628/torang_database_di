@@ -51,7 +51,6 @@ fun FeedApiModel.toUserEntity(): UserEntity {
 fun LikeApiModel.toLikeEntity(): LikeEntity {
     return LikeEntity(
         likeId = likeId,
-        userId = userId,
         createDate = createDate,
         reviewId = reviewId
     )
