@@ -7,6 +7,7 @@ import com.sarang.torang.core.database.dao.FavoriteDao
 import com.sarang.torang.core.database.dao.FeedDao
 import com.sarang.torang.core.database.dao.LikeDao
 import com.sarang.torang.core.database.dao.LoggedInUserDao
+import com.sarang.torang.core.database.dao.MainFeedDao
 import com.sarang.torang.core.database.dao.MyFeedDao
 import com.sarang.torang.core.database.dao.PictureDao
 import com.sarang.torang.core.database.dao.RestaurantDao
@@ -41,4 +42,5 @@ class DaoModules {
     @Provides fun chatRoomDao                   (appDatabase: AppDatabase): ChatRoomDao                 { return appDatabase.chatRoomDao() }
     @Provides fun chatImageDao                  (appDatabase: AppDatabase): ChatImageDao                { return appDatabase.chatImageDao() }
     @Provides fun chatParticipantsDao           (appDatabase: AppDatabase): ChatParticipantsDao         { return appDatabase.chatParticipantsDao() }
+    @Provides fun mainFeedDao                   (appDatabase: AppDatabase): MainFeedDao                 { return appDatabase.mainFeedDao() }
 }
